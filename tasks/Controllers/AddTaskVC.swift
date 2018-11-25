@@ -10,11 +10,10 @@ import UIKit
 
 class AddTaskVC: UITableViewController {
     
+    // Boolean variables for showing/hiding pickers
     var hideCategoryPicker = true
     var hideDatePicker = true
     
-    @IBOutlet weak var selectedCategoryLabel: UILabel!
-    @IBOutlet weak var selectedDateLabel: UILabel!
     
     var categoryPickerData = ["None"]
 
@@ -22,6 +21,8 @@ class AddTaskVC: UITableViewController {
     @IBOutlet weak var taskTF: UITextField!
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var selectedCategoryLabel: UILabel!
+    @IBOutlet weak var selectedDateLabel: UILabel!
     //@IBOutlet weak var categoryPickerCell: UITableViewCell!
     //@IBOutlet weak var datePickerCell: UITableViewCell!
     
@@ -79,6 +80,7 @@ class AddTaskVC: UITableViewController {
     
     // Changes row height when showing/hiding pickers
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         var rowHeight: CGFloat = 0.0
         
         // Category picker row
@@ -105,6 +107,7 @@ class AddTaskVC: UITableViewController {
     }
 }
 
+// MARK:- PickerView Delegate & Data Source
 extension AddTaskVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
